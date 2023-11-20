@@ -1,0 +1,14 @@
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\bin\Debug\Presentacion.exe.config
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\bin\Debug\Presentacion.exe
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\bin\Debug\Presentacion.pdb
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\bin\Debug\BLL.dll
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\bin\Debug\ENTITY.dll
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\bin\Debug\DAL.dll
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\bin\Debug\BLL.pdb
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\bin\Debug\ENTITY.pdb
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\bin\Debug\DAL.pdb
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\obj\Debug\Presentacion.exe
+C:\Users\LENOVO\Desktop\PROYECTO_AULA\Presentacion\obj\Debug\Presentacion.pdb
