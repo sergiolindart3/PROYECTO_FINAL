@@ -55,6 +55,7 @@ namespace BLL
             return usuarioDAL.ConsultarEgresos(FK);
         }
 
+        //METODO PARA VALIDAR QUE EL CORREO NO SE REPITA AL MOMENTO DE REGISTRAR
         public bool ValidarRegistroUser(string correo)
         {
             listUsers = usuarioDAL.ConsultarUsers();
@@ -75,7 +76,8 @@ namespace BLL
         {
             usuarioDAL.ActualizarSaldo(correo, nuevoSaldo);
         }
-
+        
+        //METODO PARA VALIDAR QUE EL USUARIO EXISTA Y LE PERMITA INICIAR SESION
         public int ValidarAcceso(string correo, string clave)
         {
             listUsers = usuarioDAL.ConsultarUsers();

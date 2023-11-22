@@ -12,6 +12,8 @@ namespace DAL
 {
     public class UsuarioDAL : ConexionDB
     {
+
+        //METODO GUARDAR USUARIO EN LA BASE DE DATOS
         public string GuardarUser(Usuario usuario)
         {
             OracleConnection sqlConexion = new OracleConnection();
@@ -38,6 +40,7 @@ namespace DAL
             }
         }
 
+        //METODO CONSULTAR USUARIO EN LA BASE DE DATOS
         public List<Usuario> ConsultarUsers()
         {
             OracleDataReader reader;
@@ -67,6 +70,7 @@ namespace DAL
             }
         }
 
+        //METODO GUARDAR INGRESO EN LA BASE DE DATOS
         public bool GuardarIngreso(Ingreso ingreso, string FK)
         {
             OracleConnection sqlConexion = new OracleConnection();
@@ -94,6 +98,7 @@ namespace DAL
             }
         }
 
+        //METODO CONSULTAR INGRESOS EN LA BASE DE DATOS
         public List<Ingreso> ConsultarIngresos(string FK)
         {
             OracleDataReader reader;
@@ -124,6 +129,7 @@ namespace DAL
             }
         }
 
+        //METODO GUARDAR EGRESO EN LA BASE DE DATOS
         public bool GuardarEgreso(Egreso egreso, string FK)
         {
             OracleConnection sqlConexion = new OracleConnection();
@@ -151,6 +157,7 @@ namespace DAL
             }
         }
 
+        //METODO CONSULTAR EGRESOS EN LA BASE DE DATOS
         public List<Egreso> ConsultarEgresos(string FK)
         {
             OracleDataReader reader;
@@ -181,6 +188,7 @@ namespace DAL
             }
         }
 
+        //ACTUALIZA EL SALDO DEL USUARIO AL MOMENTO DE INSERTAR INGRESOS Y EGRESOS EN LA BASE DE DATOS
         public void ActualizarSaldo(string correo, double nuevoSaldo)
         {
             OracleConnection sqlCon = new OracleConnection();
@@ -206,6 +214,7 @@ namespace DAL
             }
         }
 
+        //METODO PARA CAMBIAR LA CONTRASEÑA DEL USUARIO 
         public bool CambiarContraseña(string correo, string nuevaContraseña)
         {
             OracleConnection sqlCon = new OracleConnection();
@@ -231,7 +240,8 @@ namespace DAL
             }
         }
 
-        private Usuario Map(OracleDataReader reader)
+        //METODOS PARA TRANSFORMAR LOS DATOS DE UNA LECTURA DE BASE DE DATOS ORACLE EN ATRIBUTOS ESPECIFICOS DE LOS OBJETOS
+        public Usuario Map(OracleDataReader reader)
         {
             Usuario usuario = new Usuario();
 
@@ -243,7 +253,7 @@ namespace DAL
             return usuario;
         }
 
-        private Ingreso MapIngreso(OracleDataReader reader)
+        public Ingreso MapIngreso(OracleDataReader reader)
         {
             Ingreso ingreso = new Ingreso();
 
@@ -255,7 +265,7 @@ namespace DAL
             return ingreso;
         }
 
-        private Egreso MapEgreso(OracleDataReader reader)
+        public Egreso MapEgreso(OracleDataReader reader)
         {
             Egreso egreso = new Egreso();
 
