@@ -17,6 +17,9 @@ namespace GUI
         UsuarioBLL usuarioBLL = new UsuarioBLL();
         List<Ingreso> listIngresos = new List<Ingreso>();
         List<Egreso> listEgresos = new List<Egreso>();
+        List<Ingreso> ingresosFiltrados = new List<Ingreso>();
+        List<Egreso> egresosFiltrados = new List<Egreso>();
+
         List<Usuario> listUsers = new List<Usuario>();
         int pos;
         public Consultar(int posicion)
@@ -125,6 +128,46 @@ namespace GUI
         private void cmbTipoFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
             ActualizarGridView();
+        }
+
+        private void btnConsultarFecha_Click(object sender, EventArgs e)
+        {
+            Tabla.Rows.Clear();
+            string FK = listUsers[pos].correo;
+            DateTime FechaInicio = fechaInicio.Value;
+            DateTime FechaFinal = fechaFinal.Value;
+            ingresosFiltrados = usuarioBLL.FiltrarIngreso(FK, FechaInicio, FechaFinal);
+            egresosFiltrados = usuarioBLL.FiltrarEgreso(FK, FechaInicio, FechaFinal);
+
+            if (ingresosFiltrados != null)
+            {
+                foreach (Ingreso ingreso in ingresosFiltrados)
+                {
+                    int rowIndex = Tabla.Rows.Add();
+                    Tabla.Rows[rowIndex].Cells["clmCantidad"].Value = $"+ {ingreso.ingreso}";
+                    Tabla.Rows[rowIndex].Cells["clmAsunto"].Value = ingreso.asunto;
+                    if (ingreso.frecuencia != 0)
+                    {
+                        Tabla.Rows[rowIndex].Cells["clmFrecuencia"].Value = ingreso.frecuencia;
+                    }
+                    Tabla.Rows[rowIndex].Cells["clmFecha"].Value = ingreso.fechaInicio.ToString("dd/MM/yyyy");
+                }
+            }
+
+            if (egresosFiltrados != null)
+            {
+                foreach (Egreso egreso in egresosFiltrados)
+                {
+                    int rowIndex = Tabla.Rows.Add();
+                    Tabla.Rows[rowIndex].Cells["clmCantidad"].Value = $"- {egreso.egreso}";
+                    Tabla.Rows[rowIndex].Cells["clmAsunto"].Value = egreso.asunto;
+                    if (egreso.frecuencia != 0)
+                    {
+                        Tabla.Rows[rowIndex].Cells["clmFrecuencia"].Value = egreso.frecuencia;
+                    }
+                    Tabla.Rows[rowIndex].Cells["clmFecha"].Value = egreso.fechaInicio.ToString("dd/MM/yyyy");
+                }
+            }
         }
     }
 }

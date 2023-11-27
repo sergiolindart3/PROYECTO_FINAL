@@ -55,6 +55,20 @@ namespace BLL
             return usuarioDAL.ConsultarEgresos(FK);
         }
 
+        public List<Ingreso> FiltrarIngreso(string FK, DateTime fechaInicio, DateTime fechaFinal)
+        {
+            List<Ingreso> ingresos = usuarioDAL.ConsultarIngresos(FK);
+            List<Ingreso> ingresosFiltrados = ingresos.Where(i => i.fechaInicio >= fechaInicio && i.fechaInicio < fechaFinal).ToList();
+            return ingresosFiltrados;
+        }
+
+        public List<Egreso> FiltrarEgreso(string FK, DateTime fechaInicio, DateTime fechaFinal)
+        {
+            List<Egreso> egresos = usuarioDAL.ConsultarEgresos(FK);
+            List<Egreso> egresosFiltrados = egresos.Where(e => e.fechaInicio >= fechaInicio && e.fechaInicio < fechaFinal).ToList();
+            return egresosFiltrados;
+        }
+
         //METODO PARA VALIDAR QUE EL CORREO NO SE REPITA AL MOMENTO DE REGISTRAR
         public bool ValidarRegistroUser(string correo)
         {
